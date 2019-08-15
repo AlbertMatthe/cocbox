@@ -1,0 +1,355 @@
+html,
+body,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+ol,
+li,
+dl,
+dd,
+dt,
+i,
+a {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+  font-style: normal;
+}
+body {
+  font-size: 0.2rem;
+}
+.lf {
+  float: left;
+}
+.rt {
+  float: right;
+}
+.clear:before,
+.clear:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.text-center {
+  text-align: center;
+}
+.text-left {
+  text-align: left;
+}
+.text-right {
+  text-align: right;
+}
+.btn {
+  padding: 0.1rem 0.2rem;
+  border: none;
+  background: #0092c8;
+  border-radius: 4px;
+  color: #ffffff;
+  cursor: pointer;
+  text-align: center;
+  float: left;
+}
+.btn.sec {
+  background: #aaaaaa;
+}
+.btn.btn-xs {
+  padding: 0 0.1rem;
+}
+.btn:hover {
+  background: #00b7fb;
+}
+.btn.sec:hover {
+  background: #c3c3c3;
+}
+html,
+body {
+  height: 100%;
+  width: 100%;
+  font-family: "Microsoft YaHei", "思源雅黑", "Arial", sans-serif;
+}
+body {
+  background: #f7f7f7;
+}
+body .header {
+  height: 1.2rem;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  background: #ffffff;
+  padding: 0 0.5rem;
+  border-bottom: 1px solid #ddd;
+  box-shadow: 0px 0px 0.1rem 0px #aaaaaa;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+body .header .user {
+  width: 1rem;
+  height: 1rem;
+  position: relative;
+}
+body .header .user .userHead {
+  width: 1rem;
+  height: 1rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 1rem;
+  background-color: #f7f7f7;
+  cursor: pointer;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-image: url("../image/default-header.png");
+}
+body .header .user .user-menu {
+  position: absolute;
+  top: 1.25rem;
+  right: 0;
+  display: none;
+  background: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+body .header .user .user-menu li {
+  height: 0.5rem;
+  line-height: 0.5rem;
+  padding: 0 0.2rem;
+  text-align: center;
+  white-space: nowrap;
+  word-break: break-all;
+  cursor: pointer;
+}
+body .header .user .user-menu li:hover {
+  background: #f7f7f7;
+}
+body .header .user .user-menu.active {
+  display: block;
+}
+body .content {
+  box-sizing: border-box;
+  padding-top: 1.4rem;
+  padding-bottom: 0.2rem;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+body .content .userlist {
+  background: #ffffff;
+  width: 3.5rem;
+  height: 100%;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  overflow-y: auto;
+  border: 1px solid #dddddd;
+  border-radius: 10px;
+  box-shadow: 0px 0px 5px 0px #cccccc;
+}
+body .content .userlist ul li {
+  height: 1rem;
+  line-height: 1rem;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #ddd;
+}
+body .content .userlist ul li .userHead {
+  width: 0.8rem;
+  height: 0.8rem;
+  border-radius: 0.4rem;
+  margin-left: 0.2rem;
+  margin-right: 0.2rem;
+  background-color: #f7f7f7;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-image: url("../image/default-header.png");
+}
+body .content .userlist ul li .userInfo {
+  flex-grow: 1;
+  word-break: break-all;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 0.3rem;
+  color: #666666;
+}
+body .content .userlist ul li .userInfo .name {
+  height: 0.5rem;
+  line-height: 0.5rem;
+  font-size: 0.9em;
+}
+body .content .userlist ul li .userInfo .userMsg {
+  height: 0.5rem;
+  line-height: 0.5rem;
+  font-size: 0.8em;
+  color: #999999;
+}
+body .content .userlist ul li .userInfo .hp,
+body .content .userlist ul li .userInfo .sc {
+  height: 0.1rem;
+  margin: 0.1rem 0;
+  box-sizing: border-box;
+  border: 1px solid #666;
+}
+body .content .detail {
+  width: 5rem;
+  height: 100%;
+  box-sizing: border-box;
+  border: 1px solid #dddddd;
+  border-radius: 10px;
+  background: #ffffff;
+  box-shadow: 0px 0px 5px 0px #cccccc;
+}
+body .content .chat {
+  width: 10.5rem;
+  box-sizing: border-box;
+  height: 100%;
+  overflow: visible;
+  display: flex;
+  flex-direction: column;
+}
+body .content .chat .messageList {
+  flex-grow: 1;
+  border: 1px solid #ddd;
+  overflow-x: hidden;
+  overflow-y: auto;
+  border-radius: 10px;
+  background: #ffffff;
+  padding: 10px;
+  box-shadow: 0px 0px 5px 0px #cccccc;
+}
+body .content .chat .messageList p {
+  line-height: 0.4rem;
+  padding: 0.1rem 0.2rem;
+  border-bottom: 1px dashed #e9e9e9;
+}
+body .content .chat .input {
+  height: 4rem;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  margin-top: 0.3rem;
+  background: #ffffff;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0px 0px 5px 0px #cccccc;
+}
+body .content .chat .input .text {
+  flex-grow: 1;
+  position: relative;
+  padding: 10px;
+}
+body .content .chat .input .text textarea {
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  display: block;
+  background: transparent;
+  resize: none;
+  border: none;
+  outline: none;
+  font-size: 0.3rem;
+}
+body .content .chat .input .text .tools {
+  position: absolute;
+  left: 0.2rem;
+  bottom: 0.2rem;
+}
+body .content .chat .input .text .tools .btn {
+  margin-right: 5px;
+}
+body .content .chat .input .text .tools .btn input {
+  width: 0.35rem;
+  border: 0px;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.7);
+}
+body .content .chat .input .text .tools .btn.roll {
+  padding-left: 30px;
+  background-image: url("../image/roll.png");
+  background-position: 5px center;
+  background-repeat: no-repeat;
+}
+body .content .chat .input .text .btns {
+  position: absolute;
+  right: 0.2rem;
+  bottom: 0.2rem;
+}
+body .content .chat .input.viewer {
+  background: #999999;
+}
+body .content .note {
+  width: 4rem;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  box-sizing: border-box;
+  border: 1px solid #dddddd;
+  border-radius: 10px;
+  background: #ffffff;
+  box-shadow: 0px 0px 5px 0px #cccccc;
+}
+body .modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  width: 100%;
+  height: 100%;
+  display: none;
+  background: #000000;
+  opacity: 0.7;
+}
+body .dialog {
+  position: fixed;
+  width: 5rem;
+  height: 2.4rem;
+  left: 50%;
+  top: 50%;
+  margin-left: -2.5rem;
+  margin-top: -1.2rem;
+  background: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  z-index: 200;
+  display: none;
+}
+body .dialog .d-body {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  flex-direction: column;
+}
+body .dialog .d-title {
+  height: 0.6rem;
+  line-height: 0.6rem;
+  font-size: 0.2rem;
+  padding-left: 10px;
+  border-bottom: 1px solid #ddd;
+}
+body .dialog .d-content {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+body .dialog .d-content input {
+  height: 0.4rem;
+  width: 4rem;
+}
+body .dialog .btns {
+  height: 0.6rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/*# sourceMappingURL=app.css.map */

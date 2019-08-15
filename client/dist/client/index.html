@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>COC聊天室（beta）</title>
+    <script src="static/js/socket.io.js"></script>
+
+<link href="app.css?91c305043b45efc62cbc" rel="stylesheet"></head>
+<body ms-controller="app">
+    <div class="header">
+        <div class="user" :attr="{title:@user.userData.username}">
+            <div :class="['userHead',user.image]" ms-click="@showUserMenu"></div>
+            <ul class="user-menu">
+                <li ms-click="@showDialog">修改昵称</li>
+            </ul>
+        </div>
+    </div>
+    <div class="content">
+        <div class="userlist">
+            <ul>
+                <li class="kp">
+                    <div class="userHead">
+
+                    </div>
+                    <div class="userInfo">
+                        <div class="name" :attr="{title:userList.kp.userData.username}">{{ userList.kp.userData.username }}</div>
+                        <div class="userMsg">
+                            KP
+                        </div>
+                    </div>
+                </li>
+                <li ms-for="item in userList.pcs" class="pc">
+                    <div class="userHead" :css="{'background-image':item.userData.userImage}"></div>
+                    <div class="userInfo">
+                        <div class="name" :attr="{title:item.userData.username}">{{ item.userData.username }}</div>
+                        <div class="hp">
+                            <span>{{item.userData.hp+'/'+item.userData.hpMax}}</span>
+                            <div class="bar"></div>
+                        </div>
+                        <div class="sc">
+                            <span>{{item.userData.sc+'/'+item.userData.scMax}}</span>
+                            <div class="bar"></div>
+                        </div>
+                    </div>
+                </li>
+                <li ms-for="item in userList.viewers" class="viewer">
+                    <div class="userHead" :css="{'background-image':item.userData.userImage}"></div>
+                    <div class="userInfo">
+                        <div class="name" :attr="{title:item.userData.username}">{{ item.userData.username }}</div>
+                        <div class="userMsg">
+                            观众
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="detail">
+            施工中...
+        </div>
+        <div class="chat">
+            <div class="messageList">
+                <p ms-for="item in messageList" :css="{color:item.color}">
+                    <span>{{ item.username }}</span>
+                    <span style="margin: 0 5px;"> </span>
+                    <span>{{ item.time }}</span>
+                    <br>
+                    <span style="font-size: 1.1em;"><span>&nbsp;&nbsp;</span><span>{{ item.message }}</span></span>
+                </p>
+            </div>
+            <div class="input viewer" ms-if="user.status=='viewer'">
+                <button class="btn" ms-click="@joinGame">加入游戏</button>
+            </div>
+            <div class="input" ms-if="user.status!='viewer'">
+                <div class="text">
+                    <textarea autofocus="autofocus"  ms-duplex="msgData.message" :css="{color:msgData.color}" ms-on-keypress="@sendMessage | enter"></textarea>
+                    <div class="tools">
+<!--                        <div class="btn roll" ms-click="rd(100,0)">-->
+<!--                            100-->
+<!--                        </div>-->
+<!--                        <div class="btn roll sec" ms-click="rd(100,1)">-->
+<!--                            100-->
+<!--                        </div>-->
+                        <div class="btn roll" ms-click="mrd($event,0)">
+                            <input type="text" ms-duplex="roll.time" ms-click="selectIpt($event)">
+                            D
+                            <input type="text" ms-duplex="roll.num" ms-click="selectIpt($event)">
+                        </div>
+                        <div class="btn roll sec" ms-click="mrd($event,1)">
+                            <input type="text" ms-duplex="roll.stime" ms-click="selectIpt($event)">
+                            D
+                            <input type="text" ms-duplex="roll.snum" ms-click="selectIpt($event)">
+                        </div>
+                    </div>
+                    <div class="btns">
+
+                        <button class="btn" ms-click="@sendMessage">发送</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="note">
+            <div class="txt">
+                <p ms-for="item in noteList" :css="{color:item.color}">
+                    <span>{{ item.username }}</span>
+                    <span style="margin: 0 5px;"> </span>
+                    <span>{{ item.time }}</span>
+                    <br>
+                    <span style="font-size: 1.1em;"><span>&nbsp;&nbsp;</span><span>{{ item.message }}</span></span>
+                </p>
+            </div>
+            <div class="quests" ms-if="user.status=='kp'">
+                <ul>
+                    <li ms-for="item in questList">
+                        <div class="userHead" :css="{'background-image':item.user.userData.userImage}"></div>
+                        <div class="questBox">{{item.text}}</div>
+                        <div class="questBtns">
+                            <div class="bin success">允许</div>
+                            <div class="bin danger">拒绝</div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="modal"></div>
+    <div class="dialog">
+        <div class="d-body">
+            <div class="d-title">
+                修改昵称
+            </div>
+            <div class="d-content">
+                <input id="dialog-username" type="text" ms-duplex="dialog.username">
+            </div>
+            <div class="btns">
+                <button class="btn" ms-click="rename">确定</button>
+            </div>
+        </div>
+    </div>
+<script type="text/javascript" src="app.js?91c305043b45efc62cbc"></script></body>
+</html>
